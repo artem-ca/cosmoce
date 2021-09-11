@@ -1,38 +1,36 @@
 <script>
-    import { onMount, setContext, createEventDispatcher } from 'svelte'
-    // import { initializeApp, getApp, getApps } from 'firebase/app'
-    // import {
-    //     getFirestore,
-    //     addDoc,
-    //     collection,
-    //     getDocs,
-    //     getDoc,
-    //     doc,
-    // } from 'firebase/firestore'
-    // import firebaseConfig from './config.json'
+  import { firestore } from '$lib/firebase'
+  import { PhoneMultiFactorGenerator } from '@firebase/auth'
+  import { collection, getDocs } from 'firebase/firestore'
 
-    // const firebaseApp = initializeApp(firebaseConfig)
-    // const firestore = getFirestore(firebaseApp)
+  import Planet from '$lib/Planet.svelte'
 
-    // try {
-    //     const docRef = await addDoc(collection(db, 'users'), {
-    //         first: 'Alan',
-    //         middle: 'Mathison',
-    //         last: 'Turing',
-    //         born: 1912,
-    //     })
+  const getCollectionDocs = async (collectionName) => {
+    const collectionRef = collection(firestore, collectionName)
+    const querySnapshot = await getDocs(collectionRef)
 
-    //     console.log('Document written with ID: ', docRef.id)
-    // } catch (e) {
-    //     console.error('Error adding document: ', e)
-    // }
+    let docs = []
 
-    // const querySnapshot = await getDocs(collection(db, 'users'))
-    // querySnapshot.forEach((doc) => {
-    //     console.log(`${doc.id} => ${doc.data()}`)
-    // })
+    querySnapshot.forEach((doc) => {
+      docs.push(doc.data())
+    })
+
+    return docs
+  }
+
+  let getPlanets = getCollectionDocs('Planets')
 </script>
 
 <h1>Welcome to SvelteKit</h1>
+
+{#await getPlanets}
+  <p>...loading planets info</p>
+{:then planets}
+  {#each planets as planet}
+    <Planet {planet} />
+  {/each}
+{:catch error}
+  <p style="color: red">{error.message}</p>
+{/await}
 
 <p>Hello</p>
