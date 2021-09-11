@@ -1,6 +1,5 @@
 <script>
   import { firestore } from '$lib/firebase'
-  import { PhoneMultiFactorGenerator } from '@firebase/auth'
   import { collection, getDocs } from 'firebase/firestore'
 
   import Planet from '$lib/Planet.svelte'

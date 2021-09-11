@@ -3,5 +3,7 @@
 </script>
 
 {#if typeof planet.name !== 'undefined'}
-  NAME: {planet.name}
+  <div>
+    NAME: {planet.name}
+  </div>
 {/if}
