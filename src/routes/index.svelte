@@ -1,6 +1,6 @@
 <script>
   import { firestore } from '$lib/firebase'
-  import { collection, getDocs, getDocData } from 'firebase/firestore'
+  import { collection, getDocs } from 'firebase/firestore'
 
   const getCollectionDocs = async (collectionName) => {
     let docs = []
