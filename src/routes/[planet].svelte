@@ -1,49 +1,30 @@
 <script context="module">
+  import { amp, browser, dev, mode, prerendering } from '$app/env'
+
   import { firestore } from '$lib/firebase'
   import {
     collection,
     getDocs,
     getDocsFromServer,
     getDoc,
+    getDocFromServer,
     doc,
   } from 'firebase/firestore'
 
-  const getCollectionDocs = async (collectionName) => {
-    const collectionRef = collection(firestore, collectionName)
-    const querySnapshot = await getDocs(collectionRef)
-
-    let docs = []
-
-    querySnapshot.forEach((doc) => {
-      docs.push(doc.data())
-    })
-
-    return docs
-  }
-
-  const getDocData = async (collection, docId) => {
-    const docRef = doc(firestore, collection, docId)
-    const docSnap = await getDoc(docRef)
-
-    if (docSnap.exists()) {
-      console.log('Document data:', doc.data())
-    }
-  }
-
   export async function load({ page, fetch }) {
-    // const planets = await getCollectionDocs('Planets')
-    // const collectionRef = collection(firestore, 'Planets')
-    // const querySnapshot = await getDocsFromServer(collectionRef)
-    const planet = getDocData('Planets', '')
+    let planetData
+    if (browser) {
+      const docRef = doc(firestore, 'Planets', 'CI1124UjwsZe7b7w9eZx')
+      console.log('=== BROWSER docRef: ', docRef)
+      const planetDoc = await getDoc(docRef)
+      planetData = planetDoc.data()
 
-    console.log('=== LOAD planet: ', planet)
+      console.log('=== BROWSER planetData: ', planetData)
+    }
 
-    const planets = [{ name: 'TEST EARTH' }]
-
-    // console.log('=== LOAD planets: ', planets)
     return {
       props: {
-        planet: planets[0],
+        planet: planetData,
       },
     }
   }
