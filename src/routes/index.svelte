@@ -3,10 +3,9 @@
   import { collection, getDocs } from 'firebase/firestore'
 
   const getCollectionDocs = async (collectionName) => {
+    let docs = []
     const collectionRef = collection(firestore, collectionName)
     const querySnapshot = await getDocs(collectionRef)
-
-    let docs = []
 
     querySnapshot.forEach((doc) => {
       docs.push(doc.data())
