@@ -2,7 +2,7 @@
   "name": "~TODO~",
   "version": "0.0.1",
   "scripts": {
-    "dev": "svelte-kit dev",
+    "dev": "svelte-kit dev -p 5000",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview"
   },
@@ -10,5 +10,8 @@
     "@sveltejs/kit": "next",
     "svelte": "^3.34.0"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "firebase": "^9.0.0-beta.7"
+  }
 }
