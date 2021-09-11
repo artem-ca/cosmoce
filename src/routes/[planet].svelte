@@ -1,43 +1,33 @@
-<script context="module">
-  import { amp, browser, dev, mode, prerendering } from '$app/env'
-
-  import { firestore } from '$lib/firebase'
-  import {
-    collection,
-    getDocs,
-    getDocsFromServer,
-    getDoc,
-    getDocFromServer,
-    doc,
-  } from 'firebase/firestore'
-
-  export async function load({ page, fetch }) {
-    let planetData
-    if (browser) {
-      const docRef = doc(firestore, 'Planets', 'CI1124UjwsZe7b7w9eZx')
-      console.log('=== BROWSER docRef: ', docRef)
-      const planetDoc = await getDoc(docRef)
-      planetData = planetDoc.data()
-
-      console.log('=== BROWSER planetData: ', planetData)
-    }
-
-    return {
-      props: {
-        planet: planetData,
-      },
-    }
-  }
-</script>
-
 <script>
-  import { page } from '$app/stores'
-  import Planet from '$lib/Planet.svelte'
-  export let planet
+    import { page } from '$app/stores'
+    import { firestore } from '$lib/firebase'
+    import { collection, getDocs, query, where } from 'firebase/firestore'
 
-  console.log('=== PAGE planet: ', planet)
+    async function getPlanetData() {
+        const collectionRef = collection(firestore, 'Planets')
+        const collectionQuery = query(
+            collectionRef,
+            where('name', '==', $page.params.planet)
+        )
+        const querySnapshot = await getDocs(collectionQuery)
+        let docs = []
+
+        querySnapshot.forEach((doc) => {
+            docs.push(doc.data())
+        })
+
+        return docs[0]
+    }
 </script>
 
 <h1>PLANET PAGE</h1>
-param planet={$page.params.planet}
-<Planet {planet} />
+{#await getPlanetData()}
+    ... loading planet {$page.params.planet}
+{:then planet}
+    <div>
+        NAME: {planet.name}<br />
+        DATA: <br />
+
+        {JSON.stringify(planet)}
+    </div>
+{/await}
