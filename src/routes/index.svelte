@@ -2,8 +2,6 @@
   import { firestore } from '$lib/firebase'
   import { collection, getDocs } from 'firebase/firestore'
 
-  import Planet from '$lib/Planet.svelte'
-
   const getCollectionDocs = async (collectionName) => {
     const collectionRef = collection(firestore, collectionName)
     const querySnapshot = await getDocs(collectionRef)
@@ -16,20 +14,18 @@
 
     return docs
   }
-
-  let getPlanets = getCollectionDocs('Planets')
 </script>
 
 <h1>Welcome to SvelteKit</h1>
 
-{#await getPlanets}
-  <p>...loading planets info</p>
+{#await getCollectionDocs('Planets')}
+  <p>...loading planets</p>
 {:then planets}
-  {#each planets as planet}
-    <Planet {planet} />
-  {/each}
+  <ul>
+    {#each planets as planet}
+      <li><a href={`./${planet.name}`}>{planet.name}</a></li>
+    {/each}
+  </ul>
 {:catch error}
   <p style="color: red">{error.message}</p>
 {/await}
-
-<p>Hello</p>
