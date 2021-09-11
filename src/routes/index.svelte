@@ -1,7 +1,6 @@
 <script>
     import { firestore } from '$lib/firebase'
-    import { PhoneMultiFactorGenerator } from '@firebase/auth'
-    import { collection, getDocs } from 'firebase/firestore'
+    import { collection, getDocs, getDocData } from 'firebase/firestore'
 
     import Planet from '$lib/Planet.svelte'
 
@@ -19,6 +18,20 @@
     }
 
     let getPlanets = getCollectionDocs('Planets')
+
+    export async function load({ page, fetch }) {
+        const planet = getDocData('Planets', '')
+
+        console.log(planet)
+
+        const planets = [{ name: 'TEST' }]
+
+        return {
+            props: {
+                planet: planets[0],
+            },
+        }
+    }
 </script>
 
 <h1>Welcome to SvelteKit</h1>
