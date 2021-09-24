@@ -1,33 +1,69 @@
+<script context="module">
+    export const prerender = true
+</script>
+
 <script>
     import { page } from '$app/stores'
     import { firestore } from '$lib/firebase'
     import { collection, getDocs, query, where } from 'firebase/firestore'
+    import { onMount } from 'svelte'
 
-    async function getPlanetData() {
-        const collectionRef = collection(firestore, 'Planets')
-        const collectionQuery = query(
-            collectionRef,
-            where('name', '==', $page.params.planet)
-        )
-        const querySnapshot = await getDocs(collectionQuery)
+    const getCollectionDocs = async (collectionName) => {
         let docs = []
+        const collectionRef = collection(firestore, collectionName)
+        const querySnapshot = await getDocs(collectionRef)
 
         querySnapshot.forEach((doc) => {
             docs.push(doc.data())
         })
 
+        return docs
+    }
+
+    async function getPlanetData() {
+        let docs = []
+        const collectionRef = collection(firestore, 'Planets')
+        const collectionQuery = query(
+            collectionRef,
+            where('name', '==', $page.params.planet)
+        )
+
+        const querySnapshot = await getDocs(collectionQuery)
+        querySnapshot.forEach((doc) => {
+            docs.push(doc.data())
+        })
         return docs[0]
     }
 </script>
 
 <h1>PLANET PAGE</h1>
+
+{#await getCollectionDocs('Planets')}
+    <p>...loading list</p>
+{:then planets}
+    <ul>
+        {#each planets as planet}
+            <li><a href={`./${planet.name}`}>{planet.name}</a></li>
+        {/each}
+    </ul>
+{:catch error}
+    <p style="color: red">{error.message}</p>
+{/await}
+
 {#await getPlanetData()}
     ... loading planet {$page.params.planet}
 {:then planet}
-    <div>
-        NAME: {planet.name}<br />
-        DATA: <br />
-
-        {JSON.stringify(planet)}
+    <div class="p-5">
+        <p class="text-3xl font-bold">
+            {planet.name}
+        </p>
+        <p>От Солцна: {planet.seq_number}</p>
+        <p>Спутников: {planet.satellites}</p>
+        <div>
+            Средняя температура:
+            <b class="font-semibold">
+                {planet.temp_average}
+            </b>
+        </div>
     </div>
 {/await}

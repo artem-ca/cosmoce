@@ -1,9 +1,9 @@
 <script>
-  export let planet
+    export let planet
 </script>
 
 {#if typeof planet?.name !== 'undefined'}
-  <div>
-    NAME: {planet.name}
-  </div>
+    <div>
+        NAME: {planet.name}
+    </div>
 {/if}

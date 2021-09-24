@@ -8,25 +8,25 @@ import {
     doc,
 } from 'firebase/firestore'
 
-// export async function load({ page, fetch }) {
-//   // const planets = await getCollectionDocs('Planets')
-//   // const collectionRef = collection(firestore, 'Planets')
-//   // const querySnapshot = await getDocsFromServer(collectionRef)
+export async function load({ page, fetch }) {
+    // const planets = await getCollectionDocs('Planets')
+    // const collectionRef = collection(firestore, 'Planets')
+    // const querySnapshot = await getDocsFromServer(collectionRef)
 
-//   const docRef = doc(firestore, 'Planets', 'CI1124UjwsZe7b7w9eZx')
-//   const planet = await getDoc(docRef).data
+    const docRef = doc(firestore, 'Planets', 'CI1124UjwsZe7b7w9eZx')
+    const planet = await getDoc(docRef).data
 
-//   console.log('=== LOAD planet: ', planet)
+    console.log('=== LOAD planet: ', planet)
 
-//   const planets = [{ name: 'TEST EARTH' }]
+    const planets = [{ name: 'TEST EARTH' }]
 
-//   // console.log('=== LOAD planets: ', planets)
-//   return {
-//     props: {
-//       planet: planets[0],
-//     },
-//   }
-// }
+    console.log('=== LOAD planets: ', planets)
+    return {
+        props: {
+            planet: planets[0],
+        },
+    }
+}
 
 export async function get({ params }) {
     const { planet } = params
