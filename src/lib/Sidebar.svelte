@@ -108,7 +108,7 @@
         --tw-gradient-from: #312e81;
         --tw-gradient-to: #312e87;
 
-        --tw-gradient-stops: var(--tw-gradient-from), rgb(165, 70, 165),
+        --tw-gradient-stops: var(--tw-gradient-from), rgb(164, 83, 218),
             var(--tw-gradient-to, rgba(55, 48, 163, 0));
     }
 </style>
