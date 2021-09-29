@@ -12,7 +12,7 @@
         <Navbar />
     </div>
     <div class="mt-7">
-        <div class="my-3 flex space-x-2">
+        <a class="my-3 flex space-x-2" href="/blog">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
@@ -27,15 +27,14 @@
                     d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
             </svg>
-            <div class="flex flex-row">
-                <p class="">Recommended</p>
-            </div>
-        </div>
+
+            <p class="">Recommended</p>
+        </a>
         <HomePosts />
     </div>
 
     <div class="mt-5">
-        <div class="my-3 flex space-x-2">
+        <a class="my-3 flex space-x-2" href="/people">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
@@ -51,7 +50,7 @@
                 />
             </svg>
             <p>People</p>
-        </div>
+        </a>
         <div class="flex flex-row space-x-10">
             <PersonCard />
             <PersonCard />
@@ -59,7 +58,7 @@
     </div>
 
     <div class="mt-5">
-        <div class="my-3 flex space-x-2">
+        <a class="flex my-3 space-x-2" href="/planets">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
@@ -75,8 +74,9 @@
                 />
             </svg>
 
-            <a href="/planets">Planets</a>
-        </div>
+            <p>Planets</p>
+        </a>
+
         <div class="flex flex-row space-x-10">
             <PlanetCard />
             <PlanetCard />

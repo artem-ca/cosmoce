@@ -1,11 +1,11 @@
 <script>
     import { page } from '$app/stores'
 
-    import home from '/sidebarIcons/home.svg'
-    import blog from '/sidebarIcons/blog.svg'
-    import glossary from '/sidebarIcons/glossary.svg'
-    import profile from '/sidebarIcons/profile.svg'
-    import about from '/sidebarIcons/about.svg'
+    import home from '../../static/sidebarIcons/home.svg'
+    import blog from '../../static/sidebarIcons/blog.svg'
+    import glossary from '../../static/sidebarIcons/glossary.svg'
+    import profile from '../../static/sidebarIcons/profile.svg'
+    import about from '../../static/sidebarIcons/about.svg'
 
     let current = '/'
     let selected
@@ -16,7 +16,10 @@
 
     <div class="mt-8 space-y-5 px-8">
         <div class="flex ">
-            <a href="/" class="text-lg w-full">
+            <a
+                href="/"
+                class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
+            >
                 <div
                     class="flex space-x-1 cursor-pointer rounded-md"
                     class:active={$page.path === '/'}
@@ -29,7 +32,10 @@
         </div>
 
         <div class="flex">
-            <a href="/blog" class="text-lg w-full">
+            <a
+                href="/blog"
+                class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
+            >
                 <div
                     class="flex space-x-1 cursor-pointer"
                     class:active={$page.path === '/blog'}
@@ -42,7 +48,10 @@
         </div>
 
         <div class="flex">
-            <a href="/glossary" class="text-lg w-full">
+            <a
+                href="/glossary"
+                class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
+            >
                 <div
                     class="flex space-x-1 cursor-pointer"
                     class:active={$page.path === '/glossary'}
@@ -55,7 +64,10 @@
         </div>
 
         <div class="flex">
-            <a href="/profile" class="text-lg w-full">
+            <a
+                href="/profile"
+                class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
+            >
                 <div
                     class="flex space-x-1 cursor-pointer"
                     class:active={$page.path === '/profile'}
@@ -69,7 +81,10 @@
 
         {#if $page.path === '/about'}
             <div class="flex">
-                <a href="/about" class="text-lg w-full">
+                <a
+                    href="/about"
+                    class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
+                >
                     <div
                         class="flex space-x-1 cursor-pointer"
                         class:active={$page.path === '/about'}
@@ -82,7 +97,10 @@
             </div>
         {:else}
             <div class="flex">
-                <a href="/about" class="text-lg w-full">
+                <a
+                    href="/about"
+                    class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
+                >
                     <div
                         class="flex space-x-1 cursor-pointer"
                         class:active={$page.path === '/about'}
