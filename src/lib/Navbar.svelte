@@ -1,8 +1,5 @@
 <section class="">
-    <div
-        class="w-max flex bg-deep-purple-blue rounded-lg space-x-10 p-2 px-5
-        items-center self-center justify-center align-middle shadow-md"
-    >
+    <div class="w-max flex bg-deep-purple-blue rounded-lg space-x-10 p-2 px-5">
         <!-- <button>Home</button>
         <button>Blog</button>
 

@@ -48,22 +48,26 @@
     <p style="color: red">{error.message}</p>
 {/await} -->
 
-{#await getPlanetData()}
-    <p class="p-5">
-        ... loading planet {$page.params.planet}
-    </p>
-{:then planet}
-    <div class="p-5">
-        <p class="text-3xl font-bold">
-            {planet.name}
-        </p>
-        <p>От Солцна: {planet.seq_number}</p>
-        <p>Спутников: {planet.satellites}</p>
-        <div>
-            Средняя температура:
-            <b class="font-semibold">
-                {planet.temp_average}
-            </b>
-        </div>
+<section class="flex m-auto p-20">
+    <div class="text-center text-3xl font-bold">
+        {#await getPlanetData()}
+            <p class="p-5">
+                ... loading planet {$page.params.planet}
+            </p>
+        {:then planet}
+            <div class="p-5">
+                <p class="text-5xl font-bold">
+                    {planet.name}
+                </p>
+                <p>От Солцна: {planet.seq_number}</p>
+                <p>Спутников: {planet.satellites}</p>
+                <div>
+                    Средняя температура:
+                    <b class="font-semibold">
+                        {planet.temp_average}
+                    </b>
+                </div>
+            </div>
+        {/await}
     </div>
-{/await}
+</section>

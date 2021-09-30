@@ -36,10 +36,10 @@
     <p>People</p>
 </a>
 
-<div class="flex flex-row space-x-10">
-    <!-- <PersonCard />
-    <PersonCard /> -->
-</div>
+<!-- <div class="flex flex-row space-x-10"> 
+    <PersonCard />
+    <PersonCard />
+ </div> -->
 
 <div class="flex flex-row space-x-10">
     {#await getCollectionDocs('People')}

@@ -4,6 +4,8 @@
 
     import PlanetCard from '$lib/PlanetCard.svelte'
 
+    import { onMount } from 'svelte'
+
     const getCollectionDocs = async (collectionName) => {
         let docs = []
         const collectionRef = collection(firestore, collectionName)
@@ -15,29 +17,40 @@
 
         return docs
     }
+
+    let Carousel // for saving Carousel component class
+    let carousel // for calling methods of carousel instance
+
+    onMount(async () => {
+        const module = await import('svelte-carousel')
+        Carousel = module.default
+    })
 </script>
 
-<section>
-    <a class="flex my-3 space-x-2" href="/planets">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-        >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-        </svg>
+{#await getCollectionDocs('Planets')}
+    Данные будут завтра...
+{:then planets}
+    <div class="flex max-w-xs m-auto">
+        <svelte:component this={Carousel} bind:this={carousel}>
+            {#each planets as planet}
+                <a href={`./${planet.name}`}>
+                    <PlanetCard {planet} />
+                </a>
+            {/each}
+        </svelte:component>
+    </div>
+{:catch error}
+    <p style="color: red">{error.message}</p>
+{/await}
 
-        <p>Planets</p>
-    </a>
+<!-- <svelte:component this={Carousel} bind:this={carousel}>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</svelte:component> -->
 
-    <div class="flex flex-wrap gap-x-10 gap-y-2">
+<!-- <section class="">
+    <div class="flex flex-row space-x-10 ">
         {#await getCollectionDocs('Planets')}
             Данные будут завтра...
         {:then planets}
@@ -50,4 +63,4 @@
             <p style="color: red">{error.message}</p>
         {/await}
     </div>
-</section>
+</section> -->
