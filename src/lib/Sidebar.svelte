@@ -21,7 +21,7 @@
                 class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
             >
                 <div
-                    class="flex space-x-1 cursor-pointer rounded-md"
+                    class="flex space-x-1 cursor-pointer rounded-md px-1"
                     class:active={$page.path === '/'}
                 >
                     <img src={home} alt="home" class="w-5 h-5 mt-1" />
@@ -37,7 +37,7 @@
                 class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
             >
                 <div
-                    class="flex space-x-1 cursor-pointer"
+                    class="flex space-x-1 cursor-pointer px-1"
                     class:active={$page.path === '/blog'}
                 >
                     <img src={blog} alt="blog" class="w-5 h-5 mt-1" />
@@ -53,7 +53,7 @@
                 class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
             >
                 <div
-                    class="flex space-x-1 cursor-pointer"
+                    class="flex space-x-1 cursor-pointer px-1"
                     class:active={$page.path === '/glossary'}
                 >
                     <img src={glossary} alt="glossary" class="w-5 h-5 mt-1" />
@@ -69,7 +69,7 @@
                 class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
             >
                 <div
-                    class="flex space-x-1 cursor-pointer"
+                    class="flex space-x-1 cursor-pointer px-1"
                     class:active={$page.path === '/profile'}
                 >
                     <img src={profile} alt="profile" class="w-5 h-5 mt-1" />
@@ -86,7 +86,7 @@
                     class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
                 >
                     <div
-                        class="flex space-x-1 cursor-pointer"
+                        class="flex space-x-1 cursor-pointer px-1"
                         class:active={$page.path === '/about'}
                     >
                         <img src={about} alt="about" class="w-5 h-5 mt-1" />
@@ -102,7 +102,7 @@
                     class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
                 >
                     <div
-                        class="flex space-x-1 cursor-pointer"
+                        class="flex space-x-1 cursor-pointer px-1"
                         class:active={$page.path === '/about'}
                     >
                         <img src={about} alt="about" class="w-5 h-5 mt-1" />
@@ -119,8 +119,6 @@
     .active {
         --tw-bg-opacity: 12;
         border-radius: 0.375rem /* 6px */;
-        padding-left: 0.25rem /* 4px */;
-        padding-right: 0.25rem /* 4px */;
 
         background-image: linear-gradient(to right, var(--tw-gradient-stops));
         --tw-gradient-from: #312e81;

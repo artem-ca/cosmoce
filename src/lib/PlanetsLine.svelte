@@ -37,7 +37,7 @@
         <p>Planets</p>
     </a>
 
-    <div class="flex flex-row space-x-10">
+    <div class="flex flex-wrap gap-x-10 gap-y-2">
         {#await getCollectionDocs('Planets')}
             Данные будут завтра...
         {:then planets}
