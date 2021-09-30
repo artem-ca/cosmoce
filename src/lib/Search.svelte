@@ -19,7 +19,8 @@
         <input type="text" class="bg-transparent outline-none w-full mx-1" />
 
         <button
-            class="px-4 bg-gradient-to-r from-indigo-900 via-indigo-800 to-purple-900 hover:opacity-90 rounded-lg"
+            class="px-4 bg-gradient-to-r from-indigo-900 via-indigo-800 to-purple-900 rounded-lg
+                    hover:via-indigo-900"
         >
             Go!
         </button>

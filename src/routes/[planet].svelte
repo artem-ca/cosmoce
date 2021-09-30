@@ -36,9 +36,7 @@
     }
 </script>
 
-<h1>PLANET PAGE</h1>
-
-{#await getCollectionDocs('Planets')}
+<!-- {#await getCollectionDocs('Planets')}
     <p>...loading list</p>
 {:then planets}
     <ul>
@@ -48,10 +46,12 @@
     </ul>
 {:catch error}
     <p style="color: red">{error.message}</p>
-{/await}
+{/await} -->
 
 {#await getPlanetData()}
-    ... loading planet {$page.params.planet}
+    <p class="p-5">
+        ... loading planet {$page.params.planet}
+    </p>
 {:then planet}
     <div class="p-5">
         <p class="text-3xl font-bold">
