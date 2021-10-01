@@ -14,7 +14,7 @@
     import Search from '$lib/Search.svelte'
 </script>
 
-<section class="w-full min-h-screen m-auto ml-6 p-7 rounded-xl bg-purple-blue">
+<section class="w-full min-h-screen m-auto p-7 rounded-xl bg-purple-blue">
     <div class="flex space-x-10">
         <Search />
         <Navbar />

@@ -59,7 +59,7 @@
                 <p class="text-5xl font-bold">
                     {planet.name}
                 </p>
-                <p>От Солцна: {planet.seq_number}</p>
+                <p>От Солнца: {planet.seq_number}</p>
                 <p>Спутников: {planet.satellites}</p>
                 <div>
                     Средняя температура:

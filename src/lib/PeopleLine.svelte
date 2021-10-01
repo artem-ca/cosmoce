@@ -41,7 +41,7 @@
     <PersonCard />
  </div> -->
 
-<div class="flex flex-row space-x-10">
+<div class="flex flex-wrap sm:flex-row gap-x-10 gap-y-5">
     {#await getCollectionDocs('People')}
         Данные будут завтра...
     {:then people}
