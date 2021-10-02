@@ -9,13 +9,10 @@
     import logoPlanet from '../../static/sidebarIcons/logoPlanet.svg'
 
     import logout from '../../static/logout.svg'
-
-    let current = '/'
-    let selected
 </script>
 
 <section
-    class="h-screen bg-purple-blue rounded-xl mr-6 px-5 lg:px-10 py-10 pb-28  hidden sm:block"
+    class="min-h-full max-h-screen bg-purple-blue rounded-xl mr-6 px-5 lg:px-10 py-10 pb-36 hidden sm:block"
 >
     <div class="w-max min-h-full  text-lg space-y-5">
         <div class="mb-7 flex justify-center">
@@ -25,7 +22,7 @@
         </div>
         <a
             href="/"
-            class="hover:bg-indigo-400 hover:bg-opacity-25 rounded-md w-full flex"
+            class="hover:bg-indigo-400 hover:bg-opacity-25 rounded-md w-full flex "
             class:active={$page.path === '/'}
         >
             <div class="flex space-x-1 px-1 ">
@@ -74,11 +71,9 @@
         <a
             href="/about"
             class="flex text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
+            class:active={$page.path === '/about'}
         >
-            <div
-                class="flex space-x-1 px-1"
-                class:active={$page.path === '/about'}
-            >
+            <div class="flex space-x-1 px-1">
                 <img src={about} alt="about" class="w-5 h-5 my-1" />
 
                 <p class="hidden lg:block">About</p>

@@ -26,6 +26,7 @@ const config = {
                 'inset 2px -70px 25px rgba(0, 0, 0, 0.3), 1px 1px 5px rgba(0, 0, 0, 0.3)',
             none: 'none',
         },
+
         borderRadius: {
             none: '0',
             sm: '0.125rem',

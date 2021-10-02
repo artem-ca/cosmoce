@@ -8,8 +8,8 @@
     import Navbar from '$lib/Navbar.svelte'
     import HomePosts from '$lib/HomePosts.svelte'
 
-    import menu from '../../static/menu.svg'
-    import chart from '../../static/chart-square.svg'
+    import menu from '../../../static/menu.svg'
+    import chart from '../../../static/chart-square.svg'
 </script>
 
 <section class="w-full min-h-screen m-auto p-7 rounded-xl bg-purple-blue">

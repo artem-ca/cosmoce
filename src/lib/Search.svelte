@@ -16,7 +16,7 @@
 
         <button
             class="px-4 bg-gradient-to-r from-indigo-900 via-indigo-800 to-purple-900 rounded-lg
-                    hover:via-indigo-900"
+                    hover:via-indigo-700"
         >
             Go!
         </button>
