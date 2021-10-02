@@ -2,7 +2,7 @@
     import search from '../../static/search.svg'
 </script>
 
-<section class="w-full min-w-52">
+<section class="w-full  mr-5">
     <div
         class="flex p-2 bg-deep-purple-blue bg-opacity-90 rounded-lg shadow-md"
     >

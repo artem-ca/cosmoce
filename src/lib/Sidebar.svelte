@@ -8,14 +8,16 @@
     import about from '../../static/sidebarIcons/about.svg'
     import logoPlanet from '../../static/sidebarIcons/logoPlanet.svg'
 
+    import logout from '../../static/logout.svg'
+
     let current = '/'
     let selected
 </script>
 
 <section
-    class="min-h-screen bg-purple-blue rounded-xl mr-6 px-5 lg:px-10 py-10 hidden sm:block"
+    class="h-screen bg-purple-blue rounded-xl mr-6 px-5 lg:px-10 py-10 pb-28  hidden sm:block"
 >
-    <div class="w-max text-lg space-y-5">
+    <div class="w-max min-h-full  text-lg space-y-5">
         <div class="mb-7 flex justify-center">
             <a href="/" alt="home">
                 <img src={logoPlanet} alt="logoPlanet" class="w-8 h-8" />
@@ -82,38 +84,27 @@
                 <p class="hidden lg:block">About</p>
             </div>
         </a>
+    </div>
 
-        <!-- {#if $page.path === '/about'}
-            <a
-                href="/about"
-                class="flex text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
-            >
-                <div
-                    class="flex space-x-1 cursor-pointer px-1"
-                    class:active={$page.path === '/about'}
-                >
-                    <img src={about} alt="about" class="w-5 h-5 mt-1" />
+    <div class="space-y-2">
+        <a
+            class="mx-4 rounded-xl bg-gradient-to-r text-center 
+            from-indigo-600 via-purple-600 to-pink-500 hover:opacity-90
+            hidden lg:block"
+            href="/login">Log in</a
+        >
 
-                    <p class="hidden md:block">About</p>
-                </div>
-            </a>
-        {:else}
-            <div class="flex">
-                <a
-                    href="/about"
-                    class="text-lg w-full hover:bg-indigo-400 hover:bg-opacity-25 rounded-md"
-                >
-                    <div
-                        class="flex space-x-1 cursor-pointer px-1"
-                        class:active={$page.path === '/about'}
-                    >
-                        <img src={about} alt="about" class="w-5 h-5 mt-1" />
+        <a
+            href="/login"
+            class="hover:bg-indigo-400 hover:bg-opacity-25 rounded-md flex"
+            class:active={$page.path === '/login'}
+        >
+            <div class="flex space-x-1 px-1">
+                <img src={logout} alt="logout" class="w-5 h-5 my-1" />
 
-                        <p class="hidden md:block">About</p>
-                    </div>
-                </a>
+                <p class="hidden lg:block mt-0.5">Logout</p>
             </div>
-        {/if} -->
+        </a>
     </div>
 </section>
 

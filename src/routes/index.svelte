@@ -12,10 +12,18 @@
     import PeopleLine from '$lib/PeopleLine.svelte'
 
     import Search from '$lib/Search.svelte'
+
+    import menu from '../../static/menu.svg'
 </script>
 
 <section class="w-full min-h-screen m-auto p-7 rounded-xl bg-purple-blue">
-    <div class="flex space-x-10">
+    <div class="flex ">
+        <img
+            src={menu}
+            alt="menu"
+            class="block sm:hidden w-6 h-6 mr-5 self-center "
+        />
+
         <Search />
         <Navbar />
     </div>
