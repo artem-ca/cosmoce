@@ -71,10 +71,11 @@
     </div>
 
     <PlanetsLine />
-
+    <!-- 
     <div class="mt-5">
         <PeopleLine />
-    </div>
+    </div> -->
+
     <!-- <div class="mt-5">
         <div class="m-auto border-2 w-80 h-32 bg-gray-300 rounded-lg flex">
             <div class="bg-red-400 w-20 h-20 rounded-full relative" />

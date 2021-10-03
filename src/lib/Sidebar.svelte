@@ -26,9 +26,9 @@
             class:active={$page.path === '/'}
         >
             <div class="flex space-x-1 px-1 ">
-                <img src={home} alt="home" class="w-5 h-5 my-1" />
+                <img src={home} alt="home" class="w-5 h-5 self-center" />
 
-                <p class="hidden lg:block">Home</p>
+                <p class="hidden lg:block ">Home</p>
             </div>
         </a>
 

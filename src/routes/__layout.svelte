@@ -19,9 +19,7 @@
     {/if}
 </svelte:head> -->
 
-<section
-    class="w-full min-h-screen flex p-5 bg-deep-purple-blue text-pale-white "
->
+<section class="min-h-screen flex p-5 bg-deep-purple-blue text-pale-white">
     <div class="max-w-7xl w-full m-auto flex min-h-screen">
         <Sidebar />
         <slot />

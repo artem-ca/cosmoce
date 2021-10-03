@@ -10,6 +10,8 @@
 
     import menu from '../../static/menu.svg'
     import chart from '../../static/chart-square.svg'
+
+    import jupiter from '../../static/pics/jupiter.png'
 </script>
 
 <section class="w-full min-h-screen m-auto p-7 rounded-xl bg-purple-blue">

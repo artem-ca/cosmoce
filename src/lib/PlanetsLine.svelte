@@ -6,6 +6,16 @@
 
     import { onMount } from 'svelte'
 
+    import mercury from '../../static/pics/mercury.png'
+    import venus from '../../static/pics/venus.png'
+    import earth from '../../static/pics/earth.png'
+    import mars from '../../static/pics/mars2.png'
+    import jupiter from '../../static/pics/jupiter.png'
+    import saturn from '../../static/pics/saturn.png'
+    import uran from '../../static/pics/uranus.png'
+    import neptune from '../../static/pics/neptune.png'
+    import pluto from '../../static/pics/pluto.png'
+
     const getCollectionDocs = async (collectionName) => {
         let docs = []
         const collectionRef = collection(firestore, collectionName)
@@ -25,23 +35,44 @@
         const module = await import('svelte-carousel')
         Carousel = module.default
     })
+
+    var planets = [
+        ['Меркурий', mercury],
+        ['Венера', venus],
+        ['Земля', earth],
+        ['Марс', mars],
+        ['Юпитер', jupiter],
+        ['Сатурн', saturn],
+        ['Уран', uran],
+        ['Нептун', neptune],
+        // ['Плутон', pluto],
+    ]
 </script>
 
-{#await getCollectionDocs('Planets')}
+<!-- {#await getCollectionDocs('Planets')}
     Данные будут завтра...
 {:then planets}
-    <div class="flex max-w-xs m-auto">
-        <svelte:component this={Carousel} bind:this={carousel}>
+    <div class="m-auto">
+        <svelte:component
+            this={Carousel}
+            bind:this={carousel}
+            dots={false}
+            particlesToShow={5}
+            particlesToScroll={1}
+            initialPageIndex={4}
+        >
             {#each planets as planet}
-                <a href={`./${planet.name}`}>
-                    <PlanetCard {planet} />
-                </a>
+                <div class="flex flex-row justify-center ">
+                    <a href={`./${planet.name}`} class="">
+                        <PlanetCard {planet} />
+                    </a>
+                </div>
             {/each}
         </svelte:component>
     </div>
 {:catch error}
     <p style="color: red">{error.message}</p>
-{/await}
+{/await} -->
 
 <!-- <svelte:component this={Carousel} bind:this={carousel}>
     <div>1</div>
@@ -64,3 +95,28 @@
         {/await}
     </div>
 </section> -->
+
+<section>
+    <div class="fukk">
+        <svelte:component
+            this={Carousel}
+            bind:this={carousel}
+            dots={false}
+            particlesToShow={5}
+            particlesToScroll={1}
+            initialPageIndex={0}
+        >
+            {#each planets as planet}
+                <div class="flex flex-row justify-center ">
+                    <PlanetCard {planet} />
+                </div>
+            {/each}
+        </svelte:component>
+    </div>
+</section>
+
+<style>
+    .fukk {
+        max-width: 1020px;
+    }
+</style>
