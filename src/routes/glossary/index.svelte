@@ -9,11 +9,14 @@
     import PersonCard from '$lib/PersonCard.svelte'
     import PlanetCard from '$lib/PlanetCard.svelte'
     import PlanetsLine from '$lib/PlanetsLine.svelte'
-    import PeopleLine from '$lib/PeopleLine.svelte'
+    import PersonsLine from '$lib/PersonsLine.svelte'
+
+    import CategoriesList from '$lib/CategoriesList.svelte'
 
     import Search from '$lib/Search.svelte'
 
     import menu from '../../../static/menu.svg'
+    import space from '../../../static/space.svg'
 </script>
 
 <section class="w-full min-h-screen m-auto p-7 rounded-xl bg-purple-blue">
@@ -27,6 +30,8 @@
         <Search />
         <Navbar />
     </div>
+
+    <!-- 
     <div class="mt-7">
         <a class="my-3 flex space-x-2" href="/blog">
             <svg
@@ -47,7 +52,7 @@
             <p class="">Recommended</p>
         </a>
         <HomePosts />
-    </div>
+    </div> -->
 
     <div class="mt-5">
         <a class="flex my-3 space-x-2" href="/glossary/planets">
@@ -71,10 +76,10 @@
     </div>
 
     <PlanetsLine />
-    <!-- 
+
     <div class="mt-5">
-        <PeopleLine />
-    </div> -->
+        <PersonsLine />
+    </div>
 
     <!-- <div class="mt-5">
         <div class="m-auto border-2 w-80 h-32 bg-gray-300 rounded-lg flex">

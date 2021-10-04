@@ -41,11 +41,13 @@
     <PersonCard />
  </div> -->
 
-<div class="flex flex-wrap sm:flex-row gap-x-10 gap-y-5">
-    {#await getCollectionDocs('People')}
+<div
+    class="flex flex-wrap sm:flex-row gap-x-10 gap-y-7 justify-center xl:justify-start"
+>
+    {#await getCollectionDocs('Persons')}
         Данные будут завтра...
-    {:then people}
-        {#each people as person}
+    {:then persons}
+        {#each persons as person}
             <!-- <a href={`./${person.name}`}> -->
             <PersonCard {person} />
             <!-- </a> -->

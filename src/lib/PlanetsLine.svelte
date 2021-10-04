@@ -97,12 +97,12 @@
 </section> -->
 
 <section>
-    <div class="fukk">
+    <div class=" m-auto w-60">
         <svelte:component
             this={Carousel}
             bind:this={carousel}
             dots={false}
-            particlesToShow={5}
+            particlesToShow={1}
             particlesToScroll={1}
             initialPageIndex={0}
         >
@@ -117,6 +117,6 @@
 
 <style>
     .fukk {
-        max-width: 1020px;
+        max-width: 960px;
     }
 </style>
