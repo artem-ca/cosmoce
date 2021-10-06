@@ -9,16 +9,6 @@
     import Sidebar from '$lib/Sidebar.svelte'
 </script>
 
-<!-- <svelte:head>
-    {#if $page.path === '/'}
-        <title>COSMOCE</title>
-    {:else}
-        <title>
-            COSMOCE | {$page.path}
-        </title>
-    {/if}
-</svelte:head> -->
-
 <svelte:head>
     <title>COSMOCE</title>
 </svelte:head>

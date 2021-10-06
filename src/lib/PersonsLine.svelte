@@ -36,11 +36,6 @@
     <p>People</p>
 </a>
 
-<!-- <div class="flex flex-row space-x-10"> 
-    <PersonCard />
-    <PersonCard />
- </div> -->
-
 <div
     class="flex flex-wrap sm:flex-row gap-x-10 gap-y-7 justify-center xl:justify-start"
 >

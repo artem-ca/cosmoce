@@ -49,6 +49,25 @@
     ]
 </script>
 
+<section>
+    <div class="m-auto w-60 ">
+        <svelte:component
+            this={Carousel}
+            bind:this={carousel}
+            dots={false}
+            particlesToShow={1}
+            particlesToScroll={1}
+            initialPageIndex={0}
+        >
+            {#each planets as planet}
+                <div class="flex flex-row justify-center ">
+                    <PlanetCard {planet} />
+                </div>
+            {/each}
+        </svelte:component>
+    </div>
+</section>
+
 <!-- {#await getCollectionDocs('Planets')}
     Данные будут завтра...
 {:then planets}
@@ -74,13 +93,7 @@
     <p style="color: red">{error.message}</p>
 {/await} -->
 
-<!-- <svelte:component this={Carousel} bind:this={carousel}>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-</svelte:component> -->
-
-<!-- <section class="">
+<!-- <section class="overflow-hidden">
     <div class="flex flex-row space-x-10 ">
         {#await getCollectionDocs('Planets')}
             Данные будут завтра...
@@ -95,28 +108,3 @@
         {/await}
     </div>
 </section> -->
-
-<section>
-    <div class=" m-auto w-60">
-        <svelte:component
-            this={Carousel}
-            bind:this={carousel}
-            dots={false}
-            particlesToShow={1}
-            particlesToScroll={1}
-            initialPageIndex={0}
-        >
-            {#each planets as planet}
-                <div class="flex flex-row justify-center ">
-                    <PlanetCard {planet} />
-                </div>
-            {/each}
-        </svelte:component>
-    </div>
-</section>
-
-<style>
-    .fukk {
-        max-width: 960px;
-    }
-</style>
